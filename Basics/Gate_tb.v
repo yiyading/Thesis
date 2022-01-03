@@ -19,7 +19,7 @@ module Gate_tb();
 	initial
 		begin
 			$display("Running Gate module testbench");	
-			$dumpfile("synthesize1.vcd");	// 打开一个VCD数据库用于记录
+			$dumpfile("Gate.vcd");	// 打开一个VCD数据库用于记录
 			// $dumpvars(level,start_module); 要记录的信号，level=0表示记录所有
 			$dumpvars(0, Gate_tb);			
 			A_1bit <= 1'b1;		// <= 非阻塞赋值
