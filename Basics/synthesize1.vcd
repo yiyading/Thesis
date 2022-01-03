@@ -1,0 +1,68 @@
+$date
+	Mon Jan  3 22:56:59 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ns
+$end
+$scope module Gate_tb $end
+$var wire 1 ! Y_1bit $end
+$var wire 4 " Y_4bit [3:0] $end
+$var reg 1 # A_1bit $end
+$var reg 4 $ A_4bit [3:0] $end
+$var reg 1 % B_1bit $end
+$var reg 4 & B_4bit [3:0] $end
+$scope module AND_gate_4bit $end
+$var wire 4 ' and_a [3:0] $end
+$var wire 4 ( and_b [3:0] $end
+$var wire 4 ) and_y [3:0] $end
+$upscope $end
+$scope module NAND_gata_1bit $end
+$var wire 1 # nand_a $end
+$var wire 1 % nand_b $end
+$var wire 1 ! nand_y $end
+$upscope $end
+$scope module OR_gate_1bit $end
+$var wire 1 # or_a $end
+$var wire 1 % or_b $end
+$var wire 1 ! or_y $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 )
+b101 (
+b1010 '
+b101 &
+1%
+b1010 $
+1#
+b0 "
+x!
+$end
+#1000000
+1!
+b1010 &
+b1010 (
+b101 $
+b101 '
+0%
+#2000000
+x!
+b101 &
+b101 (
+b1010 $
+b1010 '
+1%
+#3000000
+x!
+b1010 &
+b1010 (
+b101 $
+b101 '
+0%
+0#
+#4000000
