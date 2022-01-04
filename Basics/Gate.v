@@ -20,6 +20,8 @@ module AND_gate_4bit(
 endmodule
 
 
+
+
 // OR-Gate
 module OR_gate_1bit (
 	input wire or_a, or_b,   
@@ -27,8 +29,10 @@ module OR_gate_1bit (
 	);
 
 	assign or_y = or_a | or_b;
-
 endmodule
+
+
+
 
 // NAND-Gate
 module NAND_gate_1bit(
@@ -37,8 +41,10 @@ module NAND_gate_1bit(
 	);
 
 	assign nand_y = ~(nand_a & nand_b);
-
 endmodule
+
+
+
 
 module NAND_gate_4bit(
 	input wire [3:0] nand_a, nand_b,
@@ -46,8 +52,10 @@ module NAND_gate_4bit(
 	);
 
 	assign nand_y = ~(nand_a & nand_b);	// & 按位与
-
 endmodule
+
+
+
 
 // NOR-Gate
 module NOR_gate(
@@ -57,6 +65,9 @@ module NOR_gate(
 
 	assign nor_y = ~(nor_a | nor_b);
 endmodule
+
+
+
 
 // 异或门 exclusive_OR_gate  -- 输入相异，输出为1
 module XOR_gate (
@@ -68,6 +79,9 @@ module XOR_gate (
 	assign xor_y = (xor_a & ~xor_b) | (~xor_a & xor_b);
 endmodule
 
+
+
+
 // 同或门 equivalence gate  -- 输入相异，输出为0
 module XNOR_gate(
 	input wire [0:0] xnor_a, xnor_b,
@@ -77,4 +91,3 @@ module XNOR_gate(
 	// assign xnor_y = ~(xnor_a ^ xnor_b);
 	assign xnor_y = ~(xnor_b & ~xnor_a) | ~(~xnor_a & xnor_b);
 endmodule
-
