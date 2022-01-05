@@ -55,7 +55,9 @@ endmodule // Counter
 /*
  *	Module:
  *		D_latch();
- *  	D_flipflop();		// posedge
+ *  	D_flipflop();		// posedge clk flipflop
+ *		D_flipflop_rst();
+ *
  */
 module D_latch(
 	input wire d, clk,
@@ -83,23 +85,24 @@ module D_flipflop_rst(
 	input wire d, clk, rst,
 	output reg q
 	);
+/*
+    // Synchronized Reset
+   	always @(posedge clk)
+	    begin
+	        if(rst)
+	        	q <= 0;
+	        else
+	        	q <= d;
+	    end
+*/
 
-    reg q;//上电以后，在时钟没有工作之前，这个寄存器应该是个什么信号呢，就是初始化的信号
-          //通常上电初始化我们用复位信号来做，用复位信号来指定复位以后的状态
-//    always @ (posedge clk)//我们用正的时钟沿做它的敏感信号
-//    begin
-//        if(rst)//同步复位信号
-//            q <=0;
-//        else
-//            q <= d;//上升沿有效的时候，把d捕获到q
-//    end
-
-    always @ (posedge clk,posedge rst)//我们用正的时钟沿做它的敏感信号
-    begin
-        if(rst)//异步复位信号，跟时钟沿无关，只要复位是高电平就会复位
-            q <=0;
-        else
-            q <= d;//上升沿有效的时候，把d捕获到q
-    end    
+	// Asynchronous Reset
+    always @(posedge clk, posedge rst)
+	    begin
+	        if(rst)
+	            q <= 0;
+	        else
+	            q <= d;
+	    end    
 
 endmodule

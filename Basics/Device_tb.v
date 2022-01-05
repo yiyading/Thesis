@@ -28,8 +28,8 @@ module FullAdder_tb();
 	initial 
 		begin
 			$display("Running module testbench");	
-			$dumpfile("Device.vcd");	// 打开一个VCD数据库用于记录
-			// $dumpvars(level,start_module); 要记录的信号，level=0表示记录所有
+			$dumpfile("Device.vcd");	// Open file for record SIGNAL
+			// $dumpvars(level,start_module); 	// level=0: record all SIGNAL
 			$dumpvars(0, FullAdder_tb, Counter_tb, D_latch_tb, D_flipflop_tb);					
 			#50
 			A_1bit = 1'b1;
@@ -151,7 +151,7 @@ module D_flipflop_tb();
 	    end
 
 	// full period of 40ns
-    always #20 CLK <= ~CLK;//半周期为20ns,全周期为40ns的一个信号
+    always #20 CLK <= ~CLK;
 
     D_flipflop D_flipflop(
     	.clk(CLK),
